@@ -8,6 +8,8 @@ import DetailsPage from './pages/details'
 import ScrollToTop from './components/scrollToTop'
 import Carts from './pages/carts'
 import Location from './pages/location'
+import Shipping from './pages/shipping'
+import Payment from './pages/payment'
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
           <Route path='/categories/:id/:type' element={<DetailsPage />} />
           <Route path='/carts' element={<Carts />} />
           <Route path="/location" element={<Location/>} />
+          <Route path="/shipping" element={<Shipping/>} />
+          <Route path="/payment" element={<Payment/>} />
         </Routes>
         <Footer />
     </div>

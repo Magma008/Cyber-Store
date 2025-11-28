@@ -79,7 +79,7 @@ const Location = () => {
 
                 </div>
             </div>
-            <CheckoutButtons/>
+            <CheckoutButtons nextPage={"/shipping"} />
         </div>
     )
 }
