@@ -183,35 +183,35 @@ export const specialCards = [
 
 export const discounted = [
     {
-        id: 1,
+        id: 11,
         image: zfold,
         name: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
         price: "1799",
         isLiked: true,
     },
     {
-        id: 2,
+        id: 12,
         image: buds,
-        name: "Galaxy Buds FE Graphite",
+        name: "Galaxy Buds EA Neolite",
         price: "99.99",
         isLiked: false,
     },
     {
-        id: 3,
+        id: 13,
         image: tablet,
         name: `Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021`,
         price: "398",
         isLiked: false,
     },
     {
-        id: 4,
+        id: 14,
         image: iphone_gold,
         name: `Apple iPhone 14 Pro 512GB Gold (MQ233)`,
         price: "1437",
         isLiked: true,
     },
     {
-        id: 5,
+        id: 15,
         image: iphone_gray,
         name: `Apple iPhone 14 Pro 1TB Gold (MQ2V3)`,
         price: "1499",

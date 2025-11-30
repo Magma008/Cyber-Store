@@ -12,6 +12,7 @@ import Shipping from './pages/shipping'
 import Payment from './pages/payment'
 import Login from './pages/login'
 import SignUp from './pages/signUp'
+import Wishlist from './pages/wishlist'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/payment" element={<Payment/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<SignUp/>} />
+          <Route path='/wishlist' element={<Wishlist />} />
         </Routes>
         <Footer />
     </div>

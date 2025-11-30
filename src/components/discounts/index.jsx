@@ -1,8 +1,12 @@
 import React from 'react'
 import { discounted } from '../../mock/database'
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io'
+import { useDispatch, useSelector } from 'react-redux'
+import { togggleWishlist } from '../../features/wishlist/wishSlice'
 
 const Discounts = () => {
+    const dispatch = useDispatch()
+    const wishList = useSelector(state => state.wishlist.items)
     return (
         <div className='py-14'>
             <div className="main-container">
@@ -17,9 +21,11 @@ const Discounts = () => {
                         discounted.map((card, index) => (
                             <div key={index} className="card bg-[#F6F6F6] p-2 sm:p-4 md:p-6 flex flex-col gap-2 rounded-[9px] relative">
                                 <div className="liked text-xl sm:text-4xl cursor-pointer text-red-500 absolute top-1 sm:top-3 right-1 sm:right-3">
-                                    {
-                                        card.isLiked ? <IoIosHeart /> : <IoIosHeartEmpty />
-                                    }
+                                    <button onClick={() => dispatch(togggleWishlist({card}))} className='cursor-pointer'>
+                                        {
+                                            wishList.some((item) => item.id == card.id) ? <IoIosHeart /> : <IoIosHeartEmpty />
+                                        }
+                                    </button>
                                 </div>
                                 <div className="card-image aspect-10/12 flex justify-center">
                                     <img className='w-full h-full object-contain object-center' src={card.image} alt={card.name} />
