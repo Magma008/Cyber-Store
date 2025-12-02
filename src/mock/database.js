@@ -139,10 +139,50 @@ export const cards = [
     {
         id: 10,
         image: iphone_gray,
-        name: `Apple iPhone 14 Pro 1TB Gold (MQ2V3)`,
+        name: `Apple iPhone 14 Pro 1TB Silver (MQ2V3)`,
         price: "1499",
         isLiked: false,
         category: "phones",
+    },
+        {
+        id: 11,
+        image: zfold,
+        name: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
+        price: "1799",
+        isLiked: true,
+        category: "phones"
+    },
+    {
+        id: 12,
+        image: buds,
+        name: "Galaxy Buds EA Neolite",
+        price: "99.99",
+        isLiked: false,
+        category: "headphones"
+    },
+    {
+        id: 13,
+        image: tablet,
+        name: `Apple iPad 9 10.5" 64GB+16GB Silver (MK2L3) 2021`,
+        price: "398",
+        isLiked: false,
+        category: "tablets"
+    },
+    {
+        id: 14,
+        image: iphone_gold,
+        name: `Apple iPhone 14 Pro Max Gold (MQ233)`,
+        price: "1437",
+        isLiked: true,
+        category: "phones"
+    },
+    {
+        id: 15,
+        image: iphone_gray,
+        name: `Apple iPhone 14 Pro Max Silver (MQ2V3)`,
+        price: "1499",
+        isLiked: false,
+        category: "phones"
     },
 ];
 
@@ -154,6 +194,7 @@ export const specialCards = [
         text: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.",
         fontColor: "#000",
         backGround: "#fff",
+        type: "Headhones",
     },
     {
         id: 2,
@@ -162,6 +203,7 @@ export const specialCards = [
         text: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.",
         fontColor: "#000",
         backGround: "#F9F9F9",
+        type: "Tablets",
     },
     {
         id: 3,
@@ -170,6 +212,7 @@ export const specialCards = [
         text: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.",
         fontColor: "#000",
         backGround: "#EAEAEA",
+        type: "Phones",
     },
     {
         id: 4,
@@ -178,44 +221,7 @@ export const specialCards = [
         text: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.",
         fontColor: "#fff",
         backGround: "#2C2C2C",
-    },
-];
-
-export const discounted = [
-    {
-        id: 11,
-        image: zfold,
-        name: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
-        price: "1799",
-        isLiked: true,
-    },
-    {
-        id: 12,
-        image: buds,
-        name: "Galaxy Buds EA Neolite",
-        price: "99.99",
-        isLiked: false,
-    },
-    {
-        id: 13,
-        image: tablet,
-        name: `Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021`,
-        price: "398",
-        isLiked: false,
-    },
-    {
-        id: 14,
-        image: iphone_gold,
-        name: `Apple iPhone 14 Pro 512GB Gold (MQ233)`,
-        price: "1437",
-        isLiked: true,
-    },
-    {
-        id: 15,
-        image: iphone_gray,
-        name: `Apple iPhone 14 Pro 1TB Gold (MQ2V3)`,
-        price: "1499",
-        isLiked: false,
+        type: "Laptops",
     },
 ];
 

@@ -3,6 +3,7 @@ import ps5 from "../../assets/ps5.png"
 import airpods from "../../assets/headphone.png"
 import vision from "../../assets/vision.png"
 import mac from "../../assets/half-macbook.png"
+import { Link } from 'react-router-dom'
 
 const Brands = () => {
     return (
@@ -44,7 +45,9 @@ const Brands = () => {
                     <div className="macbook-texts flex flex-col gap-4">
                         <h1 className="text-[34px] md:text-[56px] font-thin md:leading-14">Macbook <br /><span className="font-medium">Air</span></h1>
                         <p className="text-[#909090] text-[13px] md:text-[14px] leading-6">The new 15‑inch MacBook Air makes room for more <br /> of what you love with a spacious Liquid Retina <br /> display.</p>
-                        <button className="w-fit border-2 border-black rounded-md py-0.5 md:py-2.5 px-4 md:px-8 transition-all duration-300 hover:shadow-lg hover:shadow-gray-500 cursor-pointer hover:text-shadow-lg hover:text-shadow-gray-500">Shop Now</button>
+                        <Link to="/categories/computers">
+                            <button className="w-fit border-2 border-black rounded-md py-0.5 md:py-2.5 px-4 md:px-8 transition-all duration-300 hover:shadow-lg hover:shadow-gray-500 cursor-pointer hover:text-shadow-lg hover:text-shadow-gray-500">Shop Now</button>
+                        </Link>
                     </div>
                 </div>
             </div>

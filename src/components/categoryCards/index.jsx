@@ -3,8 +3,12 @@ import { cards } from '../../mock/database'
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io'
 import { IoChevronBackSharp, IoChevronForwardSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { togggleWishlist } from '../../features/wishlist/wishSlice';
 
 const CategoryCards = () => {
+    const dispatch = useDispatch()
+    const wishList = useSelector(state => state.wishlist.items)
     return (
         <div className='w-full'>
             <div className="flex flex-col gap-4">
@@ -24,9 +28,11 @@ const CategoryCards = () => {
                         cards.map((card, index) => (
                             <div key={index} className="card bg-[#F6F6F6] p-2 sm:p-4 md:p-6 flex flex-col gap-2 rounded-[9px] relative">
                                 <div className="liked text-xl sm:text-4xl cursor-pointer text-red-500 absolute top-1 sm:top-3 right-1 sm:right-3">
-                                    {
-                                        card?.isLiked ? <IoIosHeart /> : <IoIosHeartEmpty />
-                                    }
+                                    <button onClick={() => dispatch(togggleWishlist({ card }))} className='cursor-pointer'>
+                                        {
+                                            wishList.some((item) => item.id == card.id) ? <IoIosHeart /> : <IoIosHeartEmpty />
+                                        }
+                                    </button>
                                 </div>
                                 <Link to={`/categories/${card?.category}/${card?.id}`}>
                                     <div className="card-image aspect-10/12 flex justify-center">
@@ -36,7 +42,9 @@ const CategoryCards = () => {
                                 <div className="card-body flex flex-col gap-2 sm:gap-3 items-center w-full grow">
                                     <h1 className="text-center font-medium text-[10px] sm:text-base">{card?.name}</h1>
                                     <h3 className="text-base sm:text-2xl font-semibold">${card?.price}</h3>
-                                    <button className="border-2 border-black bg-black text-white rounded-lg py-1 sm:py-2 px-4 sm:px-8 w-full cursor-pointer transition-all duration-300 hover:bg-transparent hover:text-black hover:shadow-xl hover:text-shadow-lg hover:text-shadow-gray-500 hover:shadow-gray-500 mt-auto text-[13px] sm:text-base">Buy Now</button>
+                                    <Link to={`/categories/${card?.category}/${card?.id}`} className='mt-auto w-full'>
+                                        <button className="border-2 border-black bg-black text-white rounded-lg py-1 sm:py-2 px-4 sm:px-8 w-full cursor-pointer transition-all duration-300 hover:bg-transparent hover:text-black hover:shadow-xl hover:text-shadow-lg hover:text-shadow-gray-500 hover:shadow-gray-500 mt-auto text-[13px] sm:text-base">Buy Now</button>
+                                    </Link>
                                 </div>
                             </div>
                         ))
