@@ -4,8 +4,12 @@ import { MdModeEditOutline } from 'react-icons/md'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { FaCirclePlus } from 'react-icons/fa6'
 import CheckoutButtons from '../../components/checkoutButtons'
+// import { useSelector } from 'react-redux'
 
 const Location = () => {
+    // const cartItems = useSelector(state => state.cartItems.items)
+    // console.log(cartItems);
+    
     return (
         <div className='py-14'>
             <LocationBar current={"Address"} />

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const wishSlice = createSlice({
     name: "wishlist",
     initialState: {
-        items: []
+        items: [],
     },
     reducers: {
         togggleWishlist: (state, action) => {
@@ -17,9 +17,6 @@ const wishSlice = createSlice({
                 state.items.push(product);
                 console.log("Qo'shildi");            
             }
-            
-            
-            
             
         }
     }

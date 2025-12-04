@@ -16,12 +16,19 @@ import { cards } from '../../mock/database'
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import { togggleWishlist } from '../../features/wishlist/wishSlice'
+import { toggleCart } from '../../features/cart/cartSlice'
 
 const DetailsPage = () => {
-  const param = useParams()
-  let upp = `${param.id.split("")[0].toUpperCase()}${param.id.slice(1)}`
+  const { id, type } = useParams()
+  let upp = `${type.split("")[0].toUpperCase()}${type.slice(1)}`
   const dispatch = useDispatch()
   const wishList = useSelector(state => state.wishlist.items)
+  const cartItems = useSelector(state => state.cartItems.items)
+  let card = cards.find((item) => item.id == id)
+  // console.log(wishList);
+  
+
+
 
   return (
     <div className='py-14'>
@@ -55,17 +62,17 @@ const DetailsPage = () => {
 
               </div>
               <div className="w-[70%] sm:h-[80%] sm:w-auto p-2 xl:h-[80%]">
-                <img className="w-full h-full object-cover object-center" src={iphone} alt="iphone" />
+                <img className="w-full h-full object-contain object-center" src={card?.image} alt="iphone" />
               </div>
             </div>
 
             <div className="flex flex-col p-3 gap-4">
 
-              <h1 className="text-[20px] sm:text-[40px] font-bold">Apple Iphone 14 Pro Max Vash Fash DAsh</h1>
+              <h1 className="text-[20px] sm:text-[40px] font-bold">{card?.name}</h1>
 
               <div className="flex items-center gap-4">
-                <h2 className="discounted text-[18px] sm:text-[32px] font-medium">$1399</h2>
-                <h2 className="text-[#A0A0A0] text-[16px] sm:text-[24px] line-through">$1499</h2>
+                <h2 className="discounted text-[18px] sm:text-[32px] font-medium">${card?.onDiscount ? card?.dsPrice : card?.price}</h2>
+                <h2 className={`text-[#A0A0A0] text-[16px] sm:text-[24px] line-through ${card?.onDiscount ? "block" : "hidden"}`}>${card?.price}</h2>
               </div>
 
               <div className="colors flex items-center gap-4">
@@ -146,10 +153,15 @@ const DetailsPage = () => {
               </div>
 
               <div className="buttons grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3">
-                <button className="py-2 sm:py-4 cursor-pointer border border-black rounded-md transition-all duration-300 hover:shadow-xl hover:shadow-black/50">Add to Wishlist</button>
-                <Link to="/carts">
-                  <button className="py-2 w-full sm:py-4 cursor-pointer border bg-black text-white border-black rounded-md transition-all duration-300 hover:bg-transparent hover:text-black">Add to Cart</button>
-                </Link>
+                <button onClick={() => dispatch(togggleWishlist({ card }))} className="py-2 sm:py-4 cursor-pointer border border-black rounded-md transition-all duration-300 hover:shadow-xl hover:shadow-black/50">
+                  {
+                    wishList.some((item) => item.id == card.id) ? "Remove from " : "Add to "
+                  }
+                  Wishlist</button>
+                <button onClick={() => dispatch(toggleCart(card))} className="py-2 w-full sm:py-4 cursor-pointer border bg-black text-white border-black rounded-md transition-all duration-300 hover:bg-transparent hover:text-black"> 
+                {
+                  cartItems.some((item) => item.id == card.id) ? "Remove from " : "Add to "
+                } Cart</button>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
@@ -186,6 +198,7 @@ const DetailsPage = () => {
               </div>
 
             </div>
+
           </div>
 
         </div>

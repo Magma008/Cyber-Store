@@ -69,7 +69,7 @@ export const cards = [
         image: iphone14,
         name: "Apple iPhone 14 Pro Max 128GB Deep Purple ",
         price: "900",
-        isLiked: false,
+        onDiscount: false,
         category: "phones",
     },
     {
@@ -77,7 +77,7 @@ export const cards = [
         image: camera1,
         name: "Blackmagic Pocket Cinema Camera 6k",
         price: "2535",
-        isLiked: false,
+        onDiscount: false,
         category: "cameras",
     },
     {
@@ -85,7 +85,8 @@ export const cards = [
         image: iwatch,
         name: "Apple Watch Series 9 GPS 41mm Starlight Aluminium ",
         price: "399",
-        isLiked: true,
+        onDiscount: true,
+        dsPrice: "355",
         category: "watches",
     },
     {
@@ -93,7 +94,7 @@ export const cards = [
         image: headset,
         name: "AirPods Max Silver Starlight Aluminium ",
         price: "549",
-        isLiked: false,
+        onDiscount: false,
         category: "headphones",
     },
     {
@@ -101,7 +102,8 @@ export const cards = [
         image: watch1,
         name: "Samsung Galaxy Watch6 Classic 47mm Black",
         price: "369",
-        isLiked: false,
+        onDiscount: true,
+        dsPrice: "344",
         category: "watches",
     },
     {
@@ -109,7 +111,8 @@ export const cards = [
         image: zfold,
         name: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
         price: "1799",
-        isLiked: true,
+        onDiscount: true,
+        dsPrice: "1699", 
         category: "phones",
     },
     {
@@ -117,7 +120,7 @@ export const cards = [
         image: buds,
         name: "Galaxy Buds FE Graphite",
         price: "99.99",
-        isLiked: false,
+        onDiscount: false,
         category: "headphones",
     },
     {
@@ -125,7 +128,7 @@ export const cards = [
         image: tablet,
         name: `Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021`,
         price: "398",
-        isLiked: false,
+        onDiscount: false,
         category: "computers",
     },
     {
@@ -133,7 +136,8 @@ export const cards = [
         image: iphone_gold,
         name: `Apple iPhone 14 Pro 512GB Gold (MQ233)`,
         price: "1437",
-        isLiked: true,
+        onDiscount: true,
+        dsPrice: "1399",
         category: "phones",
     },
     {
@@ -141,15 +145,15 @@ export const cards = [
         image: iphone_gray,
         name: `Apple iPhone 14 Pro 1TB Silver (MQ2V3)`,
         price: "1499",
-        isLiked: false,
+        onDiscount: false,
         category: "phones",
     },
-        {
+    {
         id: 11,
         image: zfold,
         name: "Galaxy Z Fold5 Unlocked | 256GB | Phantom Black",
         price: "1799",
-        isLiked: true,
+        onDiscount: false,
         category: "phones"
     },
     {
@@ -157,7 +161,8 @@ export const cards = [
         image: buds,
         name: "Galaxy Buds EA Neolite",
         price: "99.99",
-        isLiked: false,
+        onDiscount: true,
+        dsPrice: "85",
         category: "headphones"
     },
     {
@@ -165,7 +170,8 @@ export const cards = [
         image: tablet,
         name: `Apple iPad 9 10.5" 64GB+16GB Silver (MK2L3) 2021`,
         price: "398",
-        isLiked: false,
+        onDiscount: true,
+        dsPrice: "388",
         category: "tablets"
     },
     {
@@ -173,7 +179,7 @@ export const cards = [
         image: iphone_gold,
         name: `Apple iPhone 14 Pro Max Gold (MQ233)`,
         price: "1437",
-        isLiked: true,
+        onDiscount: false,
         category: "phones"
     },
     {
@@ -181,7 +187,6 @@ export const cards = [
         image: iphone_gray,
         name: `Apple iPhone 14 Pro Max Silver (MQ2V3)`,
         price: "1499",
-        isLiked: false,
         category: "phones"
     },
 ];

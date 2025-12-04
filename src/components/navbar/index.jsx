@@ -11,6 +11,9 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
   const [nav, setNav] = useState(false)
   const cards = useSelector(state => state.wishlist.items)
+  const cartItems = useSelector(state => state.cartItems.items)
+  // console.log(cartItems);
+  
   // console.log(cards);
   
 
@@ -40,10 +43,10 @@ const Navbar = () => {
                     <p className='text-[7px]'>{cards.length}</p>
                   </div>
                 </Link>
-                <Link className='relative'>
+                <Link to="/carts" className='relative'>
                   <FiShoppingCart />
-                  <div className="bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 hidden  right-[-5px] flex items-center rounded-full justify-center text-white">
-                    <p className='text-[7px]'>145</p>
+                  <div className={`bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 ${cartItems.length ? "flex" : "hidden"}  right-[-5px] items-center rounded-full justify-center text-white`}>
+                    <p className='text-[7px]'>{cartItems?.length}</p>
                   </div>
                 </Link>
                 <Link className='relative'>
@@ -86,13 +89,13 @@ const Navbar = () => {
               <Link to="/wishlist" className='relative'>
                 <IoIosHeartEmpty />
                 <div className={`bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 ${cards.length ? "flex" : "hidden"}  right-[-5px] items-center rounded-full justify-center text-white`}>
-                  <p className='text-[7px]'>{cards.length}</p>
+                  <p className='text-[7px]'>{cards?.length}</p>
                 </div>
               </Link>
               <Link to="/carts" className='relative'>
                 <FiShoppingCart />
-                <div className="bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 hidden  right-[-5px] flex items-center rounded-full justify-center text-white">
-                  <p className='text-[7px]'>145</p>
+                <div className={`bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2  ${cartItems.length ? "flex" : "hidden"}  right-[-5px] items-center rounded-full justify-center text-white`}>
+                  <p className='text-[7px]'>{cartItems?.length}</p>
                 </div>
               </Link>
               <Link to='/signup' className='relative'>

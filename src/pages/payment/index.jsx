@@ -1,10 +1,15 @@
 import React from 'react'
 import LocationBar from '../../components/locationBar'
-import iphone from "../../assets/iphone1.png"
+// import iphone from "../../assets/iphone1.png"
 import card from "../../assets/card-info.png"
 import CheckoutButtons from '../../components/checkoutButtons'
+import { useSelector } from 'react-redux'
 
 const Payment = () => {
+    const cartItems = useSelector(state => state.cartItems.items)
+    const cartPrices = cartItems.map((item) => item.totalPrice)
+    // const [sub, setSub] = useState(0)
+    const subtotal = cartPrices.reduce((acc, val) => acc + val, 0)
     return (
         <div className='py-14'>
             <LocationBar current={"Payment"} />
@@ -16,19 +21,24 @@ const Payment = () => {
                             <h1 className="font-medium text-[17px] sm:text-[20px]">Summary</h1>
                             <div className="grid grid-cols-1 gap-3">
 
-                                <div className="item bg-[#F6F6F6] flex sm:items-center gap-3 sm:gap-5 rounded-[13px] p-2.5 sm:p-4 text-[11px] sm:text-base font-medium sm:justify-between flex-col items-start sm:flex-row">
+                                {
+                                    cartItems.map((cart) => {
+                                        cart
+                                        return (
+                                            <div className="item bg-[#F6F6F6] flex sm:items-center gap-3 sm:gap-5 rounded-[13px] p-2.5 sm:p-4 text-[11px] sm:text-base font-medium sm:justify-between flex-col items-start sm:flex-row">
 
-                                    <div className="flex items-center gap-2 sm:gap-4">
-                                        <div className="w-[50px] h-[50px]">
-                                            <img src={iphone} alt="" className="w-full h-full object-center object-cover" />
-                                        </div>
-                                        <h3>Apple iPhone 14 Pro Max 128Gb </h3>
-                                    </div>
+                                                <div className="flex items-center gap-2 sm:gap-4">
+                                                    <div className="w-[50px] h-[50px]">
+                                                        <img src={cart?.image} alt="" className="w-full h-full object-center object-cover" />
+                                                    </div>
+                                                    <h3>{cart?.name}</h3>
+                                                </div>
 
-                                    <h3 className="font-bold text-end w-full sm:text-start sm:w-auto">$1399</h3>
-                                </div>
-
-
+                                                <h3 className="font-bold text-end w-full sm:text-start sm:w-auto">${cart?.totalPrice}</h3>
+                                            </div>
+                                        )
+                                    })
+                                }
 
                             </div>
                             <div className="flex flex-col gap-4">
@@ -42,7 +52,7 @@ const Payment = () => {
                             <div className="flex flex-col gap-4 text-[11px] sm:text-base">
                                 <div className="flex font-medium items-center justify-between">
                                     <h4>Subtotal</h4>
-                                    <span>$2347</span>
+                                    <span>${subtotal}</span>
                                 </div>
                                 <div className="flex font-medium items-center justify-between">
                                     <h4 className='text-[#545454] font-normal'>Estimated Tax</h4>
@@ -53,8 +63,8 @@ const Payment = () => {
                                     <span>$29</span>
                                 </div>
                                 <div className="flex font-medium items-center justify-between">
-                                    <h4>Totakl</h4>
-                                    <span>$2426</span>
+                                    <h4>Total</h4>
+                                    <span>${subtotal + 79}</span>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +84,7 @@ const Payment = () => {
                                 <input type="checkbox" className='sm:scale-[1.3]' />
                                 <h5 className="text-[text-12px] sm:text-[15px]">Same as billing address</h5>
                             </div>
-                            <CheckoutButtons final={"Pay"}/>
+                            <CheckoutButtons final={"Pay"} />
                         </div>
 
                     </div>
