@@ -13,9 +13,9 @@ const Navbar = () => {
   const cards = useSelector(state => state.wishlist.items)
   const cartItems = useSelector(state => state.cartItems.items)
   // console.log(cartItems);
-  
+
   // console.log(cards);
-  
+
 
 
   return (
@@ -110,7 +110,9 @@ const Navbar = () => {
 
           <ul className={` overflow-hidden h-0 ${nav && "h-[180.5px]"} md:hidden md:h-0 transition-all duration-300 flex flex-col gap-0.5 lg:gap-6 font-medium text-[15px] lg:text-base text-gray-500 md:flex-row`}>
             <li className='py-1.5 transition-all duration-300 hover:bg-cyan-300 group hover:text-white cursor-pointer px-1 hover:pl-5 md:px-0 md:hover:pl-0 md:hover:bg-transparent md:hover:text-gray-500'>
-              <p className='text-black transition-all duration-300 font-bold md:text-black group-hover:text-white'>Home</p>
+              <Link to="/">
+                <p className='text-black transition-all duration-300 font-bold md:text-black group-hover:text-white'>Home</p>
+              </Link>
             </li>
             <li className='py-1.5 transition-all duration-300 hover:bg-cyan-300 hover:text-white cursor-pointer px-1 md:px-0 hover:pl-5 md:hover:px-0 md:hover:pl-0 md:hover:bg-transparent md:hover:text-gray-500'>
               <p>About</p>

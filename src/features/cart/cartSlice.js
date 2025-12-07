@@ -15,8 +15,6 @@ const cartSlice = createSlice({
             } else {
                 state.items.push({ ...product, quantity: 1, totalPrice: Number(product.onDiscount ? product?.dsPrice : product?.price) })
             }
-            // console.log(product);
-            // console.log(exists);
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter((item) => item.id != action.payload.id)

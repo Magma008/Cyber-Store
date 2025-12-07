@@ -34,7 +34,7 @@ const Wishlist = () => {
                                     <div className="card-body flex flex-col gap-2 sm:gap-3 items-center w-full grow">
                                         <h1 className="text-center font-medium text-[10px] sm:text-base">{card.name}</h1>
                                         <h3 className="text-base sm:text-2xl font-semibold">${card.price}</h3>
-                                        <Link to={`/categories/${card?.category}`} className='mt-auto w-full'>
+                                        <Link to={`/categories/${card?.category}/${card?.id}`} className='mt-auto w-full'>
                                             <button className="border-2 border-black bg-black text-white rounded-lg py-1 sm:py-2 px-4 sm:px-8 w-full cursor-pointer transition-all duration-300 hover:bg-transparent hover:text-black hover:shadow-xl hover:text-shadow-lg hover:text-shadow-gray-500 hover:shadow-gray-500 mt-auto text-[13px] sm:text-base">Buy Now</button>
                                         </Link>
                                     </div>

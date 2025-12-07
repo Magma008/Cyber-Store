@@ -381,5 +381,21 @@ export const phones = [
             },
         ]
     },
-
 ];
+
+export const address = [
+    {
+        name: "2118 Thornridge",
+        where: "Home",
+        fullAddress: "2118 Thornridge Cir. Syracuse, Connecticut 35624",
+        telNumber: "(209) 555-0104",
+        type: "address",
+    },
+    {
+        name: "Head Office",
+        where: "Office",
+        fullAddress: "2715 Ash Dr. San Jose, South Dakota 83475",
+        telNumber: "(704) 555-0127",
+        type: "address",
+    },
+]

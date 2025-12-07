@@ -19,11 +19,10 @@ const Carts = () => {
 
                 <div className={`grid grid-cols-1 lg:${cartItems.length ? "grid-cols-2" : "grid-cols-1"} gap-3 //items-center`}>
 
-                    <div className="cart-items //bg-amber-500 grid grid-cols-1 p-3 pb-2 ">
-
+                    <div className="cart-items //bg-amber-500 flex flex-col p-3">
                         {
                             cartItems.length > 0 ? cartItems.map((item, i) => (
-                                <div key={i} className="minicarts flex items-center gap-2 //bg-amber-400 border-b border-b-[#A3A3A3] pt-6 pb-5 h-fit">
+                                <div key={i} className="minicarts flex items-center gap-2 //bg-amber-400 border-b border-b-[#A3A3A3] pt-6 pb-5 h-fit //bg-amber-500">
                                     <div className="cart-image aspect-10/12 w-[90px] sm:w-[120px] p-1 h-[90px] sm:h-[120px] //bg-red-600 overflow-hidden">
                                         <img src={item?.image} alt="iphone" className="w-full h-full object-center object-contain" />
                                     </div>
