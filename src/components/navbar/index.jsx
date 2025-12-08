@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logo from "../../assets/cyber.png"
 import { IoSearchOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoIosHeartEmpty } from "react-icons/io";
 import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
@@ -10,8 +10,19 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false)
+  const navigate = useNavigate()
   const cards = useSelector(state => state.wishlist.items)
   const cartItems = useSelector(state => state.cartItems.items)
+
+  const navigateUser = () => {
+    const data = localStorage.getItem("userInfo")
+    if (data) {
+      navigate('/user')
+    } else {
+      navigate('/signup')
+    }
+    
+  }
   // console.log(cartItems);
 
   // console.log(cards);
@@ -49,12 +60,12 @@ const Navbar = () => {
                     <p className='text-[7px]'>{cartItems?.length}</p>
                   </div>
                 </Link>
-                <Link className='relative'>
+                <button onClick={() => navigateUser()} className='relative'>
                   <AiOutlineUser />
                   <div className="bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 hidden  right-[-5px] flex items-center rounded-full justify-center text-white">
                     <p className='text-[7px]'>1456</p>
                   </div>
-                </Link>
+                </button>
               </div>
 
             </div>
@@ -98,12 +109,12 @@ const Navbar = () => {
                   <p className='text-[7px]'>{cartItems?.length}</p>
                 </div>
               </Link>
-              <Link to='/signup' className='relative'>
+              <button onClick={() => navigateUser()} className='relative'>
                 <AiOutlineUser />
                 <div className="bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 hidden  right-[-5px] flex items-center rounded-full justify-center text-white">
                   <p className='text-[7px]'>1456</p>
                 </div>
-              </Link>
+              </button>
             </div>
 
           </div>

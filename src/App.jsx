@@ -13,6 +13,8 @@ import Payment from './pages/payment'
 import Login from './pages/login'
 import SignUp from './pages/signUp'
 import Wishlist from './pages/wishlist'
+import UserData from './pages/userData'
+import Edit from './pages/edit'
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path='/wishlist' element={<Wishlist />} />
+          <Route path='/user' element={<UserData />} />
+          <Route path='/edit' element={<Edit />} />
         </Routes>
         <Footer />
     </div>
