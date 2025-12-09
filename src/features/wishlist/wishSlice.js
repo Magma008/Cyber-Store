@@ -15,8 +15,9 @@ const wishSlice = createSlice({
                 state.items = state.items.filter((item) => item.id !== product.id)
             } else {
                 state.items.push(product);
-                console.log("Qo'shildi");            
+                // console.log("Qo'shildi");            
             }
+            localStorage.setItem("wishlist", JSON.stringify(state.items))
             
         }
     }

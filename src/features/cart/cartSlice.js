@@ -15,9 +15,11 @@ const cartSlice = createSlice({
             } else {
                 state.items.push({ ...product, quantity: 1, totalPrice: Number(product.onDiscount ? product?.dsPrice : product?.price) })
             }
+            localStorage.setItem("cartItems", JSON.stringify(state.items))
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter((item) => item.id != action.payload.id)
+            localStorage.setItem("cartItems", JSON.stringify(state.items))
         },
         increaseItem: (state, action) => {
             const increment = state.items.find((item) => String(item.id) == String(action.payload))
@@ -26,6 +28,7 @@ const cartSlice = createSlice({
                 increment.totalPrice = (increment.onDiscount ? Number(increment.totalPrice) + Number(increment.dsPrice) : Number(increment.totalPrice) + Number(increment.price))
 
             }
+            localStorage.setItem("cartItems", JSON.stringify(state.items))
             // console.log(action.payload);
             // console.log(String(action.payload));
             // let itm = state.items.find((numb) => (String(numb.id) === String(action.payload)))
@@ -43,6 +46,7 @@ const cartSlice = createSlice({
                     decrement.totalPrice = (decrement.onDiscount ? Number(decrement.totalPrice) - Number(decrement.dsPrice) : Number(decrement.totalPrice) - Number(decrement.price))
                 }
             }
+            localStorage.setItem("cartItems", JSON.stringify(state.items))
         },
     }
 }

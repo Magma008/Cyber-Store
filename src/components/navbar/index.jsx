@@ -60,7 +60,7 @@ const Navbar = () => {
                     <p className='text-[7px]'>{cartItems?.length}</p>
                   </div>
                 </Link>
-                <button onClick={() => navigateUser()} className='relative'>
+                <button onClick={() => navigateUser()} className='relative cursor-pointer'>
                   <AiOutlineUser />
                   <div className="bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 hidden  right-[-5px] flex items-center rounded-full justify-center text-white">
                     <p className='text-[7px]'>1456</p>
@@ -109,7 +109,7 @@ const Navbar = () => {
                   <p className='text-[7px]'>{cartItems?.length}</p>
                 </div>
               </Link>
-              <button onClick={() => navigateUser()} className='relative'>
+              <button onClick={() => navigateUser()} className='relative cursor-pointer'>
                 <AiOutlineUser />
                 <div className="bg-red-500 min-w-[15px] min-h-[15px] absolute p-px -top-2 hidden  right-[-5px] flex items-center rounded-full justify-center text-white">
                   <p className='text-[7px]'>1456</p>
