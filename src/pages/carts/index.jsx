@@ -10,7 +10,9 @@ const Carts = () => {
     const cartItems = useSelector(state => state.cartItems.items)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    console.log(cartItems);
+    const cartPrices = cartItems.map((item) => item.totalPrice)
+    const subtotal = cartPrices.reduce((acc, val) => acc + val, 0)
+    // console.log(cartItems);
 
     return (
         <div className='py-14'>
@@ -82,7 +84,7 @@ const Carts = () => {
                                     <div className="subtotal flex flex-col gap-5">
                                         <div className="flex font-medium sm:text-[16px] text-[14px] gap-2 items-center justify-between">
                                             <span>Subtotal</span>
-                                            <p>$2347</p>
+                                            <p>${subtotal}</p>
                                         </div>
 
                                         <div className="flex font-normal sm:text-[16px] text-[14px] gap-2 items-center justify-between">
@@ -96,7 +98,7 @@ const Carts = () => {
 
                                         <div className="flex font-medium sm:text-[16px] text-[14px] gap-2 items-center justify-between">
                                             <span>Total</span>
-                                            <p>$2426</p>
+                                            <p>${subtotal + 79}</p>
                                         </div>
                                     </div>
 
@@ -104,8 +106,8 @@ const Carts = () => {
                                 </div>
                             </div>
                         </div>
-                        :
-                        ""
+                            :
+                            ""
                     }
 
                 </div>

@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+let localData = localStorage.getItem("wishlist");
+let data = (JSON.parse(localData));
+
 const wishSlice = createSlice({
     name: "wishlist",
     initialState: {
-        items: [],
+        items: data || [],
     },
     reducers: {
         togggleWishlist: (state, action) => {
@@ -14,11 +17,9 @@ const wishSlice = createSlice({
             if (exists) {
                 state.items = state.items.filter((item) => item.id !== product.id)
             } else {
-                state.items.push(product);
-                // console.log("Qo'shildi");            
+                state.items.push(product);           
             }
-            localStorage.setItem("wishlist", JSON.stringify(state.items))
-            
+            localStorage.setItem("wishlist", JSON.stringify(state.items)) 
         }
     }
 })

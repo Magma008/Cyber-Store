@@ -8,11 +8,12 @@ const paymentSlice = createSlice({
         ],
     },
     reducers: {
-        getAddress: (state, action) => {
-            state.infos.push(action.payload)
+        getData: (state, action) => {
+            // console.log(action.payload);
+            
         }
     }
 })
 
 export default paymentSlice.reducer;
-export const { getAddress } = paymentSlice.actions; 
+export const { getData } = paymentSlice.actions; 

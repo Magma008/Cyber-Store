@@ -15,27 +15,29 @@ import SignUp from './pages/signUp'
 import Wishlist from './pages/wishlist'
 import UserData from './pages/userData'
 import Edit from './pages/edit'
+import { ToastContainer } from 'react-toastify'
 
 const App = () => {
   return (
     <div className='relative'>
+      <ToastContainer />
       <ScrollToTop />
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/categories/:id' element={<Categories />} />
-          <Route path='/categories/:type/:id' element={<DetailsPage />} />
-          <Route path='/carts' element={<Carts />} />
-          <Route path="/location" element={<Location/>} />
-          <Route path="/shipping" element={<Shipping/>} />
-          <Route path="/payment" element={<Payment/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<SignUp/>} />
-          <Route path='/wishlist' element={<Wishlist />} />
-          <Route path='/user' element={<UserData />} />
-          <Route path='/edit' element={<Edit />} />
-        </Routes>
-        <Footer />
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/categories/:id' element={<Categories />} />
+        <Route path='/categories/:type/:id' element={<DetailsPage />} />
+        <Route path='/carts' element={<Carts />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path='/wishlist' element={<Wishlist />} />
+        <Route path='/user' element={<UserData />} />
+        <Route path='/edit' element={<Edit />} />
+      </Routes>
+      <Footer />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { sendData } from '../../features/userData/userSlice';
+import { Bounce, toast } from 'react-toastify';
 
 const Edit = () => {
     const [visible, setVisible] = useState(false)
@@ -40,6 +41,17 @@ const Edit = () => {
             phoneNumber: phoneRef.current.value,
         }
         dispatch(sendData(data))
+        toast.info('Data edited successfully! 🥳', {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Bounce,
+        });
         navigate("/user")
     }
 

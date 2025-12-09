@@ -1,15 +1,16 @@
 import React from 'react'
 import LocationBar from '../../components/locationBar'
-// import iphone from "../../assets/iphone1.png"
 import card from "../../assets/card-info.png"
 import CheckoutButtons from '../../components/checkoutButtons'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getData } from '../../features/payment/paySlice'
 
 const Payment = () => {
     const cartItems = useSelector(state => state.cartItems.items)
     const cartPrices = cartItems.map((item) => item.totalPrice)
-    // const [sub, setSub] = useState(0)
     const subtotal = cartPrices.reduce((acc, val) => acc + val, 0)
+    const dispatch = useDispatch()
+
     return (
         <div className='py-14'>
             <LocationBar current={"Payment"} />
@@ -22,10 +23,10 @@ const Payment = () => {
                             <div className="grid grid-cols-1 gap-3">
 
                                 {
-                                    cartItems.map((cart) => {
-                                        cart
+                                    cartItems.map((cart, i) => {
+                                        //cart
                                         return (
-                                            <div className="item bg-[#F6F6F6] flex sm:items-center gap-3 sm:gap-5 rounded-[13px] p-2.5 sm:p-4 text-[11px] sm:text-base font-medium sm:justify-between flex-col items-start sm:flex-row">
+                                            <div key={i} className="item bg-[#F6F6F6] flex sm:items-center gap-3 sm:gap-5 rounded-[13px] p-2.5 sm:p-4 text-[11px] sm:text-base font-medium sm:justify-between flex-col items-start sm:flex-row">
 
                                                 <div className="flex items-center gap-2 sm:gap-4">
                                                     <div className="w-[50px] h-[50px]">
@@ -72,12 +73,12 @@ const Payment = () => {
                         <div className="payment sm:p-5 flex flex-col gap-3 sm:gap-6">
                             <h1 className="text-[17px] sm:text-[20px] font-bold">Payment</h1>
                             <img src={card} className='w-fit' alt="card" />
-                            <form className="flex flex-col gap-4 sm:p-4">
-                                <input className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' type="text" placeholder="Cardholder's name" />
-                                <input className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' maxLength={16} type="number" placeholder="Card Number" />
+                            <form onSubmit={() => dispatch(getData("Allowed"))} className="flex flex-col gap-4 sm:p-4">
+                                <input required className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' type="text" placeholder="Cardholder's name" />
+                                <input required className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' maxLength={16} type="number" placeholder="Card Number" />
                                 <div className="grid grid-cols-2 gap-4">
-                                    <input className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' maxLength={16} type="number" placeholder="Expiration Date" />
-                                    <input className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' maxLength={16} type="number" placeholder="CVV" />
+                                    <input required className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' maxLength={16} type="number" placeholder="Expiration Date" />
+                                    <input  required className='border boder-[#CECECE] py-1.5 sm:py-3 sm:px-4 px-3 outline-0 rounded-[7px] transition-all duration-300 focus:shadow-xl focus:shadow-gray-400 focus:text-shadow-lg focus:text-shadow-gray-400' max={999} type="number" placeholder="CVV" />
                                 </div>
                             </form>
                             <div className="flex items-center gap-2">

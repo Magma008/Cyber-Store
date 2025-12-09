@@ -2,24 +2,37 @@ import React, { useEffect, useState } from 'react'
 import { BsTrash3Fill } from 'react-icons/bs'
 import { FaPencilAlt } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
+import { Flip, Slide, toast } from 'react-toastify'
 
 const UserData = () => {
     const [info, setInfo] = useState({})
     const navigate = useNavigate()
-    
+
     useEffect(() => {
         const getData = async () => {
             const data = JSON.parse(localStorage.getItem("userInfo"))
             setInfo(data)
-            
+
         }
         getData()
     }, [])
 
     const deleteHandler = () => {
         localStorage.removeItem("userInfo")
+        toast.error('User data deleted! 🗑', {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Slide,
+        });
         navigate("/signup")
     }
+    
 
     return (
         <div className='py-14 min-h-[44vh]'>
@@ -28,7 +41,7 @@ const UserData = () => {
 
                     <div className='flex gap-3 sm:gap-8 items-center flex-col sm:flex-row'>
                         <div className="userImage w-28 sm:w-32 h-28 sm:h-32 rounded-full overflow-hidden">
-                            <img className='w-full h-full object-center object-cover' src={info.url} alt="👤" />
+                            <img className='w-full h-full object-center object-cover' src={info?.url?.length > 20 ? info?.url :  "https://cdn-icons-png.flaticon.com/512/149/149071.png"} alt="👤" />
                             {/* <img className='w-full h-full object-center object-cover' src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="user-image" /> */}
                         </div>
 
